@@ -25,16 +25,17 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <BlogProvider>
         <Navigation />
-        <div className="flex justify-center">
-          <section className="mx-auto p-6">
+        <div className="flex flex-col lg:flex-row lg:justify-center lg:items-start">
+          {/* Main Content */}
+          <section className="flex-1 p-4 sm:p-6">
             <button
               onClick={openModalForNewBlog}
-              className="ml-[7rem] bg-black flex justify-center items-center text-white px-4 py-2 rounded mb-4"
+              className="bg-black flex justify-center items-center text-white px-4 py-2 rounded mb-4 w-full sm:w-auto"
             >
-              Add New Blog <IoMdAddCircle className="ml-[.5rem]" />
+              Add New Blog <IoMdAddCircle className="ml-2" />
             </button>
 
             <ArticleList openModalForEditBlog={openModalForEditBlog} />
@@ -48,15 +49,18 @@ const App = () => {
               </Modal>
             )}
           </section>
-          <div className="w-[30%] mt-8 pr-10">
+
+          {/* Sidebar */}
+          <aside className="w-full lg:w-[30%] p-4 sm:mt-8 lg:mt-0">
             <PeopleToFollow />
             <TrendsList />
             <TopicsList />
-          </div>
+          </aside>
         </div>
       </BlogProvider>
     </div>
   );
 };
+
 
 export default App;

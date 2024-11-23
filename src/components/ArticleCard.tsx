@@ -13,21 +13,24 @@ const ArticleCard = ({
   deleteBlog,
 }: ArticleCardProps) => {
   return (
-    <div className="flex p-4 bg-white w-[40rem] mb-6 ml-[2rem] shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center bg-white w-full sm:w-[95%] md:w-[40rem] mb-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-4 mx-auto">
       <img
         src={blog.image}
         alt={blog.title}
-        className="w-36 h-24 object-cover rounded-lg shadow-md"
+        className="w-full sm:w-36 h-24 object-cover rounded-lg shadow-md"
       />
 
-      <div className="ml-6 flex-1 flex flex-col">
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">
+      <div className="mt-4 sm:mt-0 sm:ml-6 flex-1 flex flex-col">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
           {blog.title}
         </h3>
 
-        <p className="text-sm text-gray-700 flex-1">{blog.description}</p>
-        <div className="flex items center justify-between mt-4 text-gray-600">
-          <span className="text-sm">{blog.time}</span>
+        <p className="text-sm sm:text-base text-gray-700 flex-1">
+          {blog.description}
+        </p>
+
+        <div className="flex items-center justify-between mt-4 text-gray-600">
+          <span className="text-xs sm:text-sm">{blog.time}</span>
           <div className="flex space-x-3">
             <FaBookmark className="text-gray-500 hover:text-gray-700 transition-colors duration-200 cursor-pointer" />
             <FaEdit
